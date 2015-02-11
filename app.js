@@ -10,11 +10,13 @@ Ext.application({
         'Login',
         'Add',
         'Add2',
-        'Reports'
+        'Reports',
+        'Todolist'
     ],
     controllers: [
         'LoginController',
         'AddController',
+        'TodolistController'
     ],
 
 
