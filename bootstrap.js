@@ -32,8 +32,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "MyApp": "app",
-  "MyApp.view.Add2": "app/view/Add.js"
+  "MyApp": "app"
 });
 
 Ext.ClassManager.addNameAlternateMappings({
@@ -663,7 +662,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "MyApp.view.Add2": [],
   "MyApp.view.Login": [],
   "MyApp.view.Main": [],
-  "MyApp.view.MainMenu": []
+  "MyApp.view.Reports": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1387,11 +1386,10 @@ Ext.ClassManager.addNameAliasMappings({
   "MyApp.controller.AddController": [],
   "MyApp.controller.LoginController": [],
   "MyApp.view.Add": [
-    "widget.addpan",
     "widget.addview"
   ],
   "MyApp.view.Add2": [
-    "widget.Add2"
+    "widget.addview2"
   ],
   "MyApp.view.Login": [
     "widget.loginview"
@@ -1400,8 +1398,8 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.main",
     "widget.mainview"
   ],
-  "MyApp.view.MainMenu": [
-    "widget.mainmenuview"
+  "MyApp.view.Reports": [
+    "widget.reports"
   ]
 });
 

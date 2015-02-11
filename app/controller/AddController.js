@@ -3,57 +3,44 @@ Ext.define('MyApp.controller.AddController', {
 
     config: {
         views: [
-            'Add'
+            'Add',
+            'Add2'
         ],
 
         refs: {
-             bMidi: 'navigationview button[action="midi"]',
-             bSoir: 'navigationview button[action="soir"]',
-             nview: '#nvView'
-
+            bMidi: '#bMidi',
+            bSoir: '#bSoir',
+            Add2View: 'add2view'
         },
 
         control: {
-             bMidi: {
-             tap: 'onMidi'
-             },
-             bSoir: {
-             tap: 'onSoir'
-             },
+            bMidi: {
+                tap: 'onMidi'
+            },
+            bSoir: {
+                tap: 'onSoir'
+            },
 
-             nview: {
-             back: 'onBack'
-             }
+            nview: {
+                back: 'onBack'
+            }
 
 
         }
     },
 
-     onView1: function(button, e, options) {
-       //  alert("blabla2");
-     button.up('navigationview').push({
 
-     xtype: 'View2',
-     title: 'View2'
-     });
-    // Ext.getCmp('NavBar').hide();
+    onMidi: function(button, e, options) {
 
+        button.up('navigationview').push({
+            xtype: 'addview2'
+        });
+    },
 
-     },
-     onBack: function() {
-      //Works
-     //alert(Ext.getCmp('nvView').getItems().getCount());
-     ///Affichage de la barre uniquement sur la 1ere page de la section
-     //if(Ext.getCmp('nvView').getItems().getCount() == 4)
-    // {Ext.getCmp('NavBar').show();}
-     },
+    onSoir: function(button, e, options) {
 
-
-     onView2: function(button, e, options) {
-         alert("blabla3");
-     button.up('navigationview').push({
-     xtype: 'View3',
-     title: 'View3'
-     });
-     }
+        button.up('navigationview').push({
+         xtype: 'addview2'
+         });
+    }
 });

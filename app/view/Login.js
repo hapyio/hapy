@@ -56,6 +56,7 @@ Ext.define('MyApp.view.Login', {
     },
     onLogInButtonTap: function () {
 
+
         var me = this,
             usernameField = me.down('#userNameTextField'),
             passwordField = me.down('#passwordTextField'),

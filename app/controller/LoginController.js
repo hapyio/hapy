@@ -72,6 +72,7 @@ Ext.define('MyApp.controller.LoginController', {
             failure: function (response) {
                 ///Pour test
                 me.signInSuccess();
+
                // me.sessionToken = null;
               //  me.signInFailure('Login failed. Please try again later.');
             }

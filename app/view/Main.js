@@ -1,12 +1,12 @@
 var window_add =
 {
-    id: 'add',
     iconCls: 'add',
     title: 'Add',
+    layout : 'fit',
 
     items : [
         {
-            xtype :'addpan'
+            xtype :'addview'
         }
 
     ]
@@ -15,6 +15,7 @@ var window_add =
 
 var window_report =
 {
+
     title : 'Reports',
     iconCls: 'search',
 
@@ -99,6 +100,7 @@ Ext.define('MyApp.view.Main', {
 
     config:
     {
+        id : 'mainbar',
         tabBarPosition: 'bottom',
         fullscreen : true,
         items: [window_add ,window_report,window_prevision ,window_todolist ,window_stock]
