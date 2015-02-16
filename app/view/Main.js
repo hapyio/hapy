@@ -22,12 +22,7 @@ var window_report =
     styleHtmlContent: true,
     items: [
         {
-            xtype: 'image',
-            html: '<img style="height: 71px; width: 100px;" src="./resources/icons/BlendBurgerHautDePage.png" />'
-        },
-        {
-            xtype :'panel',
-            html : 'A construire.'
+            xtype : 'reportsview'
         }
     ]
 

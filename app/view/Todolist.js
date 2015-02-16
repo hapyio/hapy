@@ -1,3 +1,1 @@
-/**
- * Created by julianparmentier-berlin on 11/02/15.
- */
+Ext.define('MyApp.view.Todolist', {})

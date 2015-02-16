@@ -1,3 +1,7 @@
-/**
- * Created by julianparmentier-berlin on 11/02/15.
- */
+Ext.define('MyApp.controller.TodolistController', {
+    extend :'Ext.app.Controller',
+        config :
+{
+    views:[ 'Todolist']
+        }
+});

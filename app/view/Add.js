@@ -1,7 +1,7 @@
 var dt = new Date();
 
 Ext.Date.patterns = {
-    Date: "n/j/Y"
+    Date: "j/m/Y"
 };
 
 

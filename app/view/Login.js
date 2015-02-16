@@ -8,8 +8,9 @@ Ext.define('MyApp.view.Login', {
             {
 
                 xtype: 'image',
-                html: '<img style="height: 71px; width: 100px;" src="./resources/icons/BlendBurgerHautDePage.png" />',
-                margin : 30
+                src : './resources/icons/BlendBurgerHautDePage.png',
+                mode : 'image',
+                margin : 10
             },
             {
                 xtype: 'label',

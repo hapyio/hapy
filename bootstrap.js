@@ -32,7 +32,9 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "MyApp": "app"
+  "MyApp": "app",
+  "MyApp.model.report": "app/view/Reports.js",
+  "MyApp.store.userstore": "app/view/Reports.js"
 });
 
 Ext.ClassManager.addNameAlternateMappings({
@@ -658,11 +660,16 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "MyApp.controller.AddController": [],
   "MyApp.controller.LoginController": [],
+  "MyApp.controller.ReportController": [],
+  "MyApp.controller.TodolistController": [],
+  "MyApp.model.report": [],
+  "MyApp.store.userstore": [],
   "MyApp.view.Add": [],
   "MyApp.view.Add2": [],
   "MyApp.view.Login": [],
   "MyApp.view.Main": [],
-  "MyApp.view.Reports": []
+  "MyApp.view.Reports": [],
+  "MyApp.view.Todolist": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1385,6 +1392,10 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.WindowsPhone": [],
   "MyApp.controller.AddController": [],
   "MyApp.controller.LoginController": [],
+  "MyApp.controller.ReportController": [],
+  "MyApp.controller.TodolistController": [],
+  "MyApp.model.report": [],
+  "MyApp.store.userstore": [],
   "MyApp.view.Add": [
     "widget.addview"
   ],
@@ -1399,8 +1410,9 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.mainview"
   ],
   "MyApp.view.Reports": [
-    "widget.reports"
-  ]
+    "widget.reportsview"
+  ],
+  "MyApp.view.Todolist": []
 });
 
 

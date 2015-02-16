@@ -5,6 +5,14 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
+    model : [
+        'ReportModel'
+    ],
+
+    store : [
+       'ReportStore'
+    ],
+
     views: [
         'Main',
         'Login',
@@ -44,9 +52,8 @@ Ext.application({
         Ext.Viewport.add([
             { xtype: 'loginview' },
             { xtype: 'mainview' }
-
+           // { xtype : 'reportsview'}
         ]);
-        //Ext.Viewport.add(Ext.create('MyApp.view.Add'));
     },
 
     onUpdated: function() {
