@@ -32,9 +32,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "MyApp": "app",
-  "MyApp.model.report": "app/view/Reports.js",
-  "MyApp.store.userstore": "app/view/Reports.js"
+  "MyApp": "app"
 });
 
 Ext.ClassManager.addNameAlternateMappings({
@@ -661,15 +659,19 @@ Ext.ClassManager.addNameAlternateMappings({
   "MyApp.controller.AddController": [],
   "MyApp.controller.LoginController": [],
   "MyApp.controller.ReportController": [],
-  "MyApp.controller.TodolistController": [],
+  "MyApp.controller.TaskController": [],
+  "MyApp.model.Task": [],
   "MyApp.model.report": [],
-  "MyApp.store.userstore": [],
+  "MyApp.store.ReportStore": [],
+  "MyApp.store.TaskStore": [],
   "MyApp.view.Add": [],
-  "MyApp.view.Add2": [],
+  "MyApp.view.AddMidi": [],
+  "MyApp.view.AddSoir": [],
   "MyApp.view.Login": [],
   "MyApp.view.Main": [],
   "MyApp.view.Reports": [],
-  "MyApp.view.Todolist": []
+  "MyApp.view.TaskForm": [],
+  "MyApp.view.TaskList": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1393,14 +1395,21 @@ Ext.ClassManager.addNameAliasMappings({
   "MyApp.controller.AddController": [],
   "MyApp.controller.LoginController": [],
   "MyApp.controller.ReportController": [],
-  "MyApp.controller.TodolistController": [],
+  "MyApp.controller.TaskController": [],
+  "MyApp.model.Task": [],
   "MyApp.model.report": [],
-  "MyApp.store.userstore": [],
+  "MyApp.store.ReportStore": [
+    "widget.reportstore"
+  ],
+  "MyApp.store.TaskStore": [],
   "MyApp.view.Add": [
     "widget.addview"
   ],
-  "MyApp.view.Add2": [
-    "widget.addview2"
+  "MyApp.view.AddMidi": [
+    "widget.addviewmidi"
+  ],
+  "MyApp.view.AddSoir": [
+    "widget.addviewsoir"
   ],
   "MyApp.view.Login": [
     "widget.loginview"
@@ -1412,7 +1421,10 @@ Ext.ClassManager.addNameAliasMappings({
   "MyApp.view.Reports": [
     "widget.reportsview"
   ],
-  "MyApp.view.Todolist": []
+  "MyApp.view.TaskForm": [],
+  "MyApp.view.TaskList": [
+    "widget.TaskList"
+  ]
 });
 
 

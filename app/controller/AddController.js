@@ -1,16 +1,20 @@
+
+
 Ext.define('MyApp.controller.AddController', {
     extend: 'Ext.app.Controller',
 
     config: {
         views: [
             'Add',
-            'Add2'
+            'AddMidi',
+            'AddSoir'
         ],
 
         refs: {
             bMidi: '#bMidi',
             bSoir: '#bSoir',
-            Add2View: 'add2view'
+            AddMidiView: 'addmidiview',
+            AddSoirView: 'addsoirview'
         },
 
         control: {
@@ -32,15 +36,19 @@ Ext.define('MyApp.controller.AddController', {
 
     onMidi: function(button, e, options) {
 
+
         button.up('navigationview').push({
-            xtype: 'addview2'
+
+            xtype: 'addviewmidi'
+
         });
     },
 
     onSoir: function(button, e, options) {
 
+
         button.up('navigationview').push({
-         xtype: 'addview2'
+         xtype: 'addviewsoir'
          });
     }
 });

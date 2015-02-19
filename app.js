@@ -5,26 +5,32 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    model : [
-        'ReportModel'
+    models : [
+        'report',
+        'Task'
+
     ],
 
-    store : [
-       'ReportStore'
+    stores : [
+       'ReportStore',
+        'TaskStore'
     ],
 
     views: [
         'Main',
         'Login',
         'Add',
-        'Add2',
+        'AddMidi',
+        'AddSoir',
         'Reports',
-        'Todolist'
+        'TaskForm',
+        'TaskList'
+
     ],
     controllers: [
         'LoginController',
         'AddController',
-        'TodolistController'
+        'TaskController'
     ],
 
 
@@ -49,9 +55,11 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
+
         Ext.Viewport.add([
             { xtype: 'loginview' },
-            { xtype: 'mainview' }
+            { xtype: 'mainview' },
+            Ext.create('MyApp.view.TaskForm')
            // { xtype : 'reportsview'}
         ]);
     },

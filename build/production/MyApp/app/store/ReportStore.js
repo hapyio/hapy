@@ -1,4 +1,4 @@
-Ext.define('MyApp.store.ReportStore', {
+/*Ext.define('MyApp.store.ReportStore', {
     extend: 'Ext.data.Store',
     xtype: 'ReportStore',
 
@@ -20,4 +20,6 @@ Ext.define('MyApp.store.ReportStore', {
             }
         }
     }
-});
+});*/
+
+

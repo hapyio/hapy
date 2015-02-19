@@ -21,12 +21,14 @@ id : 'Add',
 
             {
                 xtype: 'panel',
-                title: 'Ajouter votre rapport',
+                title: 'Ajouter',
                 id: 'View1',
                 items: [
                     {
-                        xtype: 'image',
-                        html: '<img style="height: 71px; width: 100px;" src="./resources/icons/BlendBurgerHautDePage.png" />',
+
+                        xtype : 'image',
+                        src : './resources/icons/BlendBurgerHautDePage.png',
+                        mode : 'image',
                         margin : 10,
                         docked:'top'
                     },

@@ -1,4 +1,4 @@
-Ext.define('MyApp.model.ReportModel', {
+/*Ext.define('MyApp.model.ReportModel', {
     extend: 'Ext.data.Model',
     config :  {
         fields: [
@@ -14,4 +14,5 @@ Ext.define('MyApp.model.ReportModel', {
 
 
     }
-});
+});*/
+
