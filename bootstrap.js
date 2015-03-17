@@ -658,10 +658,15 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "MyApp.controller.AddController": [],
   "MyApp.controller.LoginController": [],
+  "MyApp.controller.PrevisionsController": [],
   "MyApp.controller.ReportController": [],
   "MyApp.controller.TaskController": [],
+  "MyApp.model.APImeteo": [],
   "MyApp.model.Task": [],
   "MyApp.model.report": [],
+  "MyApp.store.ApiMeteoStore": [],
+  "MyApp.store.PrevisionsStore": [],
+  "MyApp.store.ReportDetailStore": [],
   "MyApp.store.ReportStore": [],
   "MyApp.store.TaskStore": [],
   "MyApp.view.Add": [],
@@ -669,8 +674,10 @@ Ext.ClassManager.addNameAlternateMappings({
   "MyApp.view.AddSoir": [],
   "MyApp.view.Login": [],
   "MyApp.view.Main": [],
+  "MyApp.view.Previsions": [],
   "MyApp.view.Reports": [],
-  "MyApp.view.TaskForm": [],
+  "MyApp.view.ReportsDetail": [],
+  "MyApp.view.Stocks": [],
   "MyApp.view.TaskList": []
 });
 
@@ -1394,10 +1401,21 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.WindowsPhone": [],
   "MyApp.controller.AddController": [],
   "MyApp.controller.LoginController": [],
+  "MyApp.controller.PrevisionsController": [],
   "MyApp.controller.ReportController": [],
   "MyApp.controller.TaskController": [],
+  "MyApp.model.APImeteo": [],
   "MyApp.model.Task": [],
   "MyApp.model.report": [],
+  "MyApp.store.ApiMeteoStore": [
+    "widget.apimeteostore"
+  ],
+  "MyApp.store.PrevisionsStore": [
+    "widget.previsionsstore"
+  ],
+  "MyApp.store.ReportDetailStore": [
+    "widget.reportdetailstore"
+  ],
   "MyApp.store.ReportStore": [
     "widget.reportstore"
   ],
@@ -1418,10 +1436,18 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.main",
     "widget.mainview"
   ],
+  "MyApp.view.Previsions": [
+    "widget.previsionsview"
+  ],
   "MyApp.view.Reports": [
     "widget.reportsview"
   ],
-  "MyApp.view.TaskForm": [],
+  "MyApp.view.ReportsDetail": [
+    "widget.reportsdetailview"
+  ],
+  "MyApp.view.Stocks": [
+    "widget.stocksview"
+  ],
   "MyApp.view.TaskList": [
     "widget.TaskList"
   ]

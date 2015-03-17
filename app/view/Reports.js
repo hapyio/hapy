@@ -1,112 +1,83 @@
 //http://hapy.io/json.php?jour=2014-02-25&restaurant=Argout&service=midi
 
+var m_number = new Array("01", "02", "03",
+    "04", "05", "06", "07", "08", "09",
+    "10", "11", "12");
 
 
 Ext.define('MyApp.view.Reports', {
-    extend: 'Ext.Container',
+    extend: 'Ext.navigation.View',
     alias: 'widget.reportsview',
     config: {
-        layout : {
-            type  : 'vbox',
-            align : 'stretch'
-        },
+        id: 'nvViewReports',
         items: [
+
             {
-                margin:'40',
-                xtype: 'datepickerfield',
-                dateFormat :'d/m/Y',
-                label: 'Date',
-                name: 'rapportdate',
-                value: new Date(),
-                picker: {
+                xtype: 'panel',
+                title: 'Rapport',
+                id: 'ViewReports1',
+                items: [
+                    {
+                        margin:'40',
+                        xtype: 'datepickerfield',
+                        dateFormat :'d/m/Y',
+                        label: 'Date',
+                        id : 'ReportsDatePicker',
+                        name: 'rapportdate',
+                        value: new Date(),
+                        picker: {
 
-                    slotOrder : ['day', 'month', 'year'],
-                    yearFrom : new Date().getFullYear()-1,
+                            slotOrder : ['day', 'month', 'year'],
+                            yearFrom : new Date().getFullYear()-1,
 
-                    listeners: {
-                        show: function(component, eOpts) {
-                            var date = this.getValue();
-                        },
-                        cancel: function(picker, eOpts) {
+                            listeners: {
+                                show: function(component, eOpts) {
+                                    var date = this.getValue();
+                                },
+                                cancel: function(picker, eOpts) {
 
-                        },
-                        change: function(picker, value) {
-                            // alert(value);
-
-                            var task = Ext.create('Ext.util.DelayedTask', function () {
-                                Ext.getStore('reportStore').load();
-                                Ext.getCmp('Test').setStore(Ext.getStore('reportStore'));
+                                },
+                                change: function(picker, value) {
 
 
-                            });
+                                    var date_picked = value.getFullYear() + "-" + m_number[value.getMonth()]  + "-" + value.getDate();
 
-                            task.delay(500);
+
+                                    var task = Ext.create('Ext.util.DelayedTask', function () {
+
+                                        Ext.getStore('reportStore').getProxy().setExtraParams({
+                                            'jour': date_picked,
+                                            'somme' : 1
+                                        });
+                                        Ext.getStore('reportStore').load();
+                                        Ext.getCmp('reportsList').setStore(Ext.getStore('reportStore'));
+
+
+                                    });
+
+                                    task.delay(500);
+                                }
+                            }
                         }
+
+                    },
+
+                    {
+
+                        height :400,
+                        id : 'reportsList',
+                        docked : 'bottom',
+                        xtype:'list',
+                        itemTpl:'{name_restaurant} - {sales}€',
+                        title:'Tests'
+
                     }
-                }
 
-            },
 
-            {
 
-                height :400,
-                id : 'Test',
-                docked : 'bottom',
-                xtype:'list',
-                itemTpl:'{name_restaurant} - {sales}€',
-                title:'Tests'
-
+                ]
             }
-
         ]
-
     }
-
-
 });
-
-
-/*Ext.define('MyApp.view.Reports', {
-
-
- extend: 'Ext.form.Panel',
- alias: 'widget.reportsview',
- layout : 'fit',
- requires: ['MyApp.store.ReportStore'],
-
- config: {
- itemTpl: '{Jour},{Service}, {Ca},{Remarque}, {Remarque Urgence},{Meteo}, {Nom Restaurant}',
- store: 'ReportStore'
- }
- });*/
-
-/*  { name: 'jour', type: 'date' },
- { name: 'service', type: 'string' },
- { name: 'ca', type: 'int' },
- { name: 'remarque', type: 'string' },
- { name: 'remarque_urgente', type: 'string' },
- { name: 'meteo', type: 'string' },
- { name: 'nom_restaurant', type: 'string' }*/
-
-
-
-
-
-
-
-/*
- var list = Ext.create("Ext.List", {
- fullscreen: true,
- id : 'list',
- store: myStore,
- itemTpl: "{jour}, {service}, {ca}, {remarque}, {remarque_urgente}, {meteo}, {nom_restaurant}"
- });
- */
-/*Ext.define('MyApp.view.Reports', {
- extend: 'Ext.Container',
- alias: 'widget.reportsview',
- config: {
- // items: [list]
- }
- });*/
 

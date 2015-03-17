@@ -12,9 +12,7 @@ Ext.define('MyApp.controller.AddController', {
 
         refs: {
             bMidi: '#bMidi',
-            bSoir: '#bSoir',
-            AddMidiView: 'addmidiview',
-            AddSoirView: 'addsoirview'
+            bSoir: '#bSoir'
         },
 
         control: {

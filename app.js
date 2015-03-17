@@ -7,13 +7,16 @@ Ext.application({
 
     models : [
         'report',
-        'Task'
-
+        'Task',
+        'APImeteo'
     ],
 
     stores : [
        'ReportStore',
-        'TaskStore'
+        'TaskStore',
+        'ReportDetailStore',
+        'ApiMeteoStore',
+        'PrevisionsStore'
     ],
 
     views: [
@@ -23,14 +26,18 @@ Ext.application({
         'AddMidi',
         'AddSoir',
         'Reports',
-        'TaskForm',
-        'TaskList'
+        'TaskList',
+        'ReportsDetail',
+        'Previsions',
+        'Stocks'
 
     ],
     controllers: [
         'LoginController',
         'AddController',
-        'TaskController'
+        'TaskController',
+        'ReportController',
+        'PrevisionsController'
     ],
 
 
@@ -58,9 +65,8 @@ Ext.application({
 
         Ext.Viewport.add([
             { xtype: 'loginview' },
-            { xtype: 'mainview' },
-            Ext.create('MyApp.view.TaskForm')
-           // { xtype : 'reportsview'}
+            { xtype: 'mainview' }
+            //{ xtype : 'reportsdetailview'}
         ]);
     },
 

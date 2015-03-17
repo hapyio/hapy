@@ -9,8 +9,6 @@ Ext.define('MyApp.model.report', {
             { name: 'note', type: 'string' },
             { name: 'warning_note', type: 'string' },
             { name: 'weather', type: 'string' }
-
-
         ]
 
 

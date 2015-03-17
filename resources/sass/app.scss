@@ -5,8 +5,25 @@
 @import 'sencha-touch/default/all';
 
 // Custom code goes here..
-.BarHaut {
-  color: #2e4bc5;
+myList {
 }
+.myList .x-list-item .done {
+  background-color: #00d85e;
+
+}
+
+.myList .x-list-item {
+
+
+}
+
+.myList .x-list-item .todo {
+
+}
+
+.myList .x-item-selected {
+  background-color: #fffa00;
+}
+
 // Examples of using the icon mixin:
-// @include icon('user');
+@include icon('cart');

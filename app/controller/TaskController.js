@@ -1,24 +1,14 @@
-
-
 Ext.define('MyApp.controller.TaskController', {
     extend: 'Ext.app.Controller',
 
     config: {
         id: 'taskController',
         refs: {
-            saveButton: 'button[action=saveTask]',
-            taskForm: '#taskForm',
-            taskList: '#taskList',
-            cancelButton: 'button[action=cancel]'
+
+            taskList: '#taskList'
+
         },
         control: {
-            saveButton: {
-                tap: 'saveTask'
-            },
-
-            cancelButton: {
-                tap: 'cancel'
-            },
 
             taskList: {
                 itemtap: 'showTask',
@@ -35,7 +25,7 @@ Ext.define('MyApp.controller.TaskController', {
         task.set('completed', !done);
     },
 
-    showTask: function(list, index, target, task, e, eOpts) {
+    /*showTask: function(list, index, target, task, e, eOpts) {
 
 
         // This is bug #w354352 in Sencha, to be done
@@ -49,13 +39,25 @@ Ext.define('MyApp.controller.TaskController', {
         setTimeout(function () {
             list.deselect(index);
         }, 500);
+    },*/
+
+    showTask: function(list, index, target, task, e, eOpts) {
+
+        var done = task.get('completed');
+
+        task.set('completed', !done);
+        setTimeout(function () {
+            list.deselect(index);
+        }, 0);
+
+
     },
 
     cancel: function(button, e, eOpts) {
         this.showList();
-    },
+    }
 
-    saveTask: function (button, e, eOpts) {
+   /* saveTask: function (button, e, eOpts) {
         var store = this.getTaskList().getStore();
         var task = this.getTaskForm().getRecord();
         this.getTaskForm().updateRecord(task);
@@ -82,6 +84,6 @@ Ext.define('MyApp.controller.TaskController', {
             direction: 'right'
         });
         Ext.Viewport.setActiveItem(this.getTaskList());
-    }
+    }*/
 });
 

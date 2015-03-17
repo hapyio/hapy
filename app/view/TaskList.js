@@ -13,14 +13,24 @@ Ext.define('MyApp.view.TaskList', {
 
         id: 'taskList',
         displayField: 'title',
+        cls:'myList',
         store: Ext.create('MyApp.store.TaskStore'),
-        itemTpl: '<div class="task completed_{completed}">{title}</div>',
+        itemTpl: new Ext.XTemplate(
+            '<tpl for=".">',
+            '<tpl if="completed ==true"">',
+            '<div style="color: #038000;">Done : {title}</div>',
+            '</tpl>',
+            '<tpl if="completed !=true"">',
+            '<div  class="">Todo : {title}</div>',
+            '</tpl>',
+            '</tpl>'
+        ),
+
         items: [
             {
             xtype: 'toolbar',
             title: 'Liste des aliments à préparer',
-            docked: 'top',
-            ui: 'light'
+            docked: 'top'
             }
         ]
     }}

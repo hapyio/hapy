@@ -18,6 +18,7 @@ var window_report =
 
     title : 'Reports',
     iconCls: 'search',
+    layout : 'fit',
 
     styleHtmlContent: true,
     items: [
@@ -33,18 +34,16 @@ var window_prevision =
 {
     title : 'Prevision',
     iconCls: 'time',
+    layout : 'fit',
 
     styleHtmlContent: true,
-    items: [
+    items : [
         {
-            xtype: 'image',
-            html: '<img style="height: 71px; width: 100px;" src="./resources/icons/BlendBurgerHautDePage.png" />'
-        },
-        {
-            xtype :'panel',
-            html : 'A construire.'
+            xtype :'previsionsview'
         }
+
     ]
+
 
 };
 
@@ -68,17 +67,13 @@ var window_todolist =
 var window_stock =
 {
     title : 'Stocks',
-    iconCls: '',
+
+    iconCls: 'cart',
 
     styleHtmlContent: true,
     items: [
         {
-            xtype: 'image',
-            html: '<img style="height: 71px; width: 100px;" src="./resources/icons/BlendBurgerHautDePage.png" />'
-        },
-        {
-            xtype :'panel',
-            html : 'A construire.'
+            xtype : 'stocksview'
         }
     ]
 
@@ -91,9 +86,14 @@ Ext.define('MyApp.view.Main', {
 
     config:
     {
+
         id : 'mainbar',
         tabBarPosition: 'bottom',
         fullscreen : true,
+        scrollable : {
+            direction     : 'vertical',
+            directionLock : true
+        },
         items: [window_add ,window_report,window_prevision ,window_todolist ,window_stock]
 
     }

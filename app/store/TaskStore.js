@@ -13,32 +13,32 @@ Ext.define('MyApp.store.TaskStore', {
 
             data: [
                 {
-                    completed: '0',
+                    completed: 'false',
                     title: 'Pains à hamburger',
                     description: '100'
                 },
                 {
-                    completed: '0',
+                    completed: 'true',
                     title: 'Sauce tomate',
                     description: '100'
                 },
                 {
-                    completed: '0',
+                    completed: 'false',
                     title: 'Fromage',
                     description: '100'
                 },
                 {
-                    completed: '0',
+                    completed: 'false',
                     title: 'Viande hachée',
                     description: '100'
                 },
                 {
-                    completed: '0',
+                    completed: 'false',
                     title: 'Salade',
                     description: '100'
                 },
                 {
-                    completed: '0',
+                    completed: 'false',
                     title: 'Pickles',
                     description: '100'
                 }
