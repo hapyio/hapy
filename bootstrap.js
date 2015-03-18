@@ -662,12 +662,16 @@ Ext.ClassManager.addNameAlternateMappings({
   "MyApp.controller.ReportController": [],
   "MyApp.controller.TaskController": [],
   "MyApp.model.APImeteo": [],
+  "MyApp.model.AddModel": [],
+  "MyApp.model.Stock": [],
   "MyApp.model.Task": [],
   "MyApp.model.report": [],
   "MyApp.store.ApiMeteoStore": [],
   "MyApp.store.PrevisionsStore": [],
   "MyApp.store.ReportDetailStore": [],
   "MyApp.store.ReportStore": [],
+  "MyApp.store.SendAddStore": [],
+  "MyApp.store.StockStore": [],
   "MyApp.store.TaskStore": [],
   "MyApp.view.Add": [],
   "MyApp.view.AddMidi": [],
@@ -1405,6 +1409,8 @@ Ext.ClassManager.addNameAliasMappings({
   "MyApp.controller.ReportController": [],
   "MyApp.controller.TaskController": [],
   "MyApp.model.APImeteo": [],
+  "MyApp.model.AddModel": [],
+  "MyApp.model.Stock": [],
   "MyApp.model.Task": [],
   "MyApp.model.report": [],
   "MyApp.store.ApiMeteoStore": [
@@ -1418,6 +1424,10 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "MyApp.store.ReportStore": [
     "widget.reportstore"
+  ],
+  "MyApp.store.SendAddStore": [],
+  "MyApp.store.StockStore": [
+    "widget.stockstore"
   ],
   "MyApp.store.TaskStore": [],
   "MyApp.view.Add": [

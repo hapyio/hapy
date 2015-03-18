@@ -8,7 +8,9 @@ Ext.application({
     models : [
         'report',
         'Task',
-        'APImeteo'
+        'APImeteo',
+        'Stock',
+        'AddModel'
     ],
 
     stores : [
@@ -16,7 +18,9 @@ Ext.application({
         'TaskStore',
         'ReportDetailStore',
         'ApiMeteoStore',
-        'PrevisionsStore'
+        'PrevisionsStore',
+        'StockStore',
+        'SendAddStore'
     ],
 
     views: [
@@ -59,6 +63,7 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 
+
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
@@ -68,6 +73,9 @@ Ext.application({
             { xtype: 'mainview' }
             //{ xtype : 'reportsdetailview'}
         ]);
+
+        if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
+            Ext.select(".x-toolbar").applyStyles("height: 62px; padding-top: 15px;")};
     },
 
     onUpdated: function() {

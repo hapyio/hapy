@@ -41,6 +41,15 @@ Ext.define('MyApp.view.Previsions', {
     config: {
 
         items: [
+
+            {
+
+                xtype: 'titlebar',
+                docked: 'top',
+                title: 'Previsions'
+
+
+            },
             {
                 xtype: 'image',
                 src: './resources/icons/BlendBurgerHautDePage.png',
@@ -73,7 +82,7 @@ Ext.define('MyApp.view.Previsions', {
 
                     {
                         layout: 'vbox',
-                        style: 'width:33%',
+                        style: 'width:25%',
                         items: [{
                             html: "Jour",
                             style: 'font-weight:bold;text-align:center;display:block;'
@@ -83,8 +92,7 @@ Ext.define('MyApp.view.Previsions', {
                             {
                                 xtype: 'label',
                                 name: 'J',
-                                style: 'font-weight:bold;text-align:center;display:block;',
-                                html : 'J'
+                                style: 'font-weight:bold;text-align:center;display:block;'
 
 
                             },
@@ -125,9 +133,9 @@ Ext.define('MyApp.view.Previsions', {
 
                     {
                         layout: 'vbox',
-                        style: 'width:33%',
+                        style: 'width:25%',
                         items: [{
-                            html: "CA",
+                            html: "CA N-1",
                             style: 'font-weight:bold;text-align:center;display:block;'
 
 
@@ -135,17 +143,14 @@ Ext.define('MyApp.view.Previsions', {
                             {
                                 xtype: 'label',
                                 name: 'CA_J',
-                                style: 'font-weight:bold;text-align:center;display:block;',
-                                html : 'CA_J'
+                                style: 'font-weight:bold;text-align:center;display:block;'
 
                             },
 
                             {
                                 xtype: 'label',
                                 name: 'CA_J+1',
-                                style: 'font-weight:bold;text-align:center;display:block;',
-                                html : 'CA_J+1'
-
+                                style: 'font-weight:bold;text-align:center;display:block;'
                             },
                             {
                                 xtype: 'label',
@@ -174,12 +179,64 @@ Ext.define('MyApp.view.Previsions', {
 
                         ]
                     },
+                    {
+                        layout: 'vbox',
+                        style: 'width:25%',
+                        items: [{
+                            html: "Meteo N-1",
+                            style: 'font-weight:bold;text-align:center;display:block;'
+
+
+                        },
+                            {
+                                xtype: 'label',
+                                name: 'MeteoN1_J',
+                                style: 'font-weight:bold;text-align:center;display:block;'
+
+                            },
+
+                            {
+                                xtype: 'label',
+                                name: 'MeteoN1_J+1',
+                                style: 'font-weight:bold;text-align:center;display:block;'
+
+
+                            },
+                            {
+                                xtype: 'label',
+                                name: 'MeteoN1_J+2',
+                                style: 'font-weight:bold;text-align:center;display:block;'
+                            },
+
+                            {
+                                xtype: 'label',
+                                name: 'MeteoN1_J+3',
+                                style: 'font-weight:bold;text-align:center;display:block;'
+
+                            },
+
+                            {
+                                xtype: 'label',
+                                name: 'MeteoN1_J+4',
+                                style: 'font-weight:bold;text-align:center;display:block;'
+
+                            },
+
+                            {
+                                xtype: 'label',
+                                name: 'MeteoN1_J+5',
+                                style: 'font-weight:bold;text-align:center;display:block;'
+
+                            }
+
+                        ]
+                    },
 
                     {
                         layout: 'vbox',
-                        style: 'width:33%',
+                        style: 'width:25%',
                         items: [{
-                            html: "Meteo",
+                            html: "Meteo prévue",
                             style: 'font-weight:bold;text-align:center;display:block;'
 
 
@@ -187,16 +244,15 @@ Ext.define('MyApp.view.Previsions', {
                             {
                                 xtype: 'label',
                                 name: 'Meteo_J',
-                                style: 'font-weight:bold;text-align:center;display:block;',
-                                html : 'Meteo_J'
+                                style: 'font-weight:bold;text-align:center;display:block;'
 
                             },
 
                             {
                                 xtype: 'label',
                                 name: 'Meteo_J+1',
-                                style: 'font-weight:bold;text-align:center;display:block;',
-                                html : 'Meteo_J+1'
+                                style: 'font-weight:bold;text-align:center;display:block;'
+
 
                             },
                             {
@@ -278,17 +334,17 @@ Ext.define('MyApp.view.Previsions', {
 
 
         var date = new Date();
-        J.setHtml(weekday[date.getDay()]);
+        J.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
         date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        J1.setHtml(weekday[date.getDay()]);
+        J1.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
         date = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
-        J2.setHtml(weekday[date.getDay()]);
+        J2.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
         date = new Date(new Date().getTime() + 72 * 60 * 60 * 1000);
-        J3.setHtml(weekday[date.getDay()]);
+        J3.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
         date = new Date(new Date().getTime() + 96 * 60 * 60 * 1000);
-        J4.setHtml(weekday[date.getDay()]);
+        J4.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
         date = new Date(new Date().getTime() + 120 * 60 * 60 * 1000);
-        J5.setHtml(weekday[date.getDay()]);
+        J5.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
 
 
 
@@ -298,6 +354,14 @@ Ext.define('MyApp.view.Previsions', {
         var labMeteoJ3 =   this.down('label[name="Meteo_J+3"]');
         var labMeteoJ4 = this.down('label[name="Meteo_J+4"]');
         var labMeteoJ5 =   this.down('label[name="Meteo_J+5"]');
+
+
+        var labMeteoN1J =  this.down('label[name="MeteoN1_J"]');
+        var labMeteoN1J1 =   this.down('label[name="MeteoN1_J+1"]');
+        var labMeteoN1J2 =  this.down('label[name="MeteoN1_J+2"]');
+        var labMeteoN1J3 =   this.down('label[name="MeteoN1_J+3"]');
+        var labMeteoN1J4 = this.down('label[name="MeteoN1_J+4"]');
+        var labMeteoN1J5 =   this.down('label[name="MeteoN1_J+5"]');
 
 
 
@@ -383,12 +447,31 @@ Ext.define('MyApp.view.Previsions', {
             var CAJ4 = storeCA.getAt(4).get('sales');
             var CAJ5 = storeCA.getAt(5).get('sales');
 
+
+
+            meteoN1J = storeCA.getAt(0).get('weather');
+            meteoN1J1 = storeCA.getAt(1).get('weather');
+            meteoN1J2 = storeCA.getAt(2).get('weather');
+            meteoN1J3 = storeCA.getAt(3).get('weather');
+            meteoN1J4 = storeCA.getAt(4).get('weather');
+            meteoN1J5  =storeCA.getAt(5).get('weather');
+
+
             labCAJ.setHtml(CAJ);
             labCAJ1.setHtml(CAJ1);
             labCAJ2.setHtml(CAJ2);
             labCAJ3.setHtml(CAJ3);
             labCAJ4.setHtml(CAJ4);
             labCAJ5.setHtml(CAJ5);
+
+
+
+            labMeteoN1J.setHtml(meteoN1J);
+            labMeteoN1J1.setHtml(meteoN1J1);
+            labMeteoN1J2.setHtml(meteoN1J2);
+            labMeteoN1J3.setHtml(meteoN1J3);
+            labMeteoN1J4.setHtml(meteoN1J4);
+            labMeteoN1J5.setHtml(meteoN1J5);
 
 
         });

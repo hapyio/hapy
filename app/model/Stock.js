@@ -1,9 +1,9 @@
-Ext.define('MyApp.model.Stocks', {
+Ext.define('MyApp.model.Stock', {
     extend: 'Ext.data.Model',
     config :  {
         fields: [
-            { name: 'ingredient', type: 'string' },
-            { name: 'Quantite', type: 'int' }
+            { name: 'name_ingredient', type: 'string' },
+            { name: 'quantite', type: 'int' }
         ]
 
 

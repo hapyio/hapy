@@ -3,7 +3,7 @@ var window_add =
     iconCls: 'add',
     title: 'Add',
     layout : 'fit',
-
+    styleHtmlContent: true,
     items : [
         {
             xtype :'addview'
@@ -67,7 +67,7 @@ var window_todolist =
 var window_stock =
 {
     title : 'Stocks',
-
+    layout : 'fit',
     iconCls: 'cart',
 
     styleHtmlContent: true,

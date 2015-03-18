@@ -64,7 +64,7 @@ Ext.define('MyApp.view.Reports', {
 
                     {
 
-                        height :400,
+                      style : 'height:60%',
                         id : 'reportsList',
                         docked : 'bottom',
                         xtype:'list',

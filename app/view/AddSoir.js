@@ -1,31 +1,38 @@
 
 var opts = [{
-    text: 'Choix 1',
-    value: 'Choix1'
+    text: 'RAS',
+    value: 'RAS'
 }, {
-    text: 'Choix 2',
-    value: 'Choix2'
+    text: 'Manifestations',
+    value: 'Manifestations'
 }, {
-    text: 'Choix 3',
-    value: 'Choix3'
+    text: 'Soldes',
+    value: 'Soldes'
 }, {
-    text: 'Choix 4',
-    value: 'Choix4'
-}];
+    text: 'Vacances scolaires Paris',
+    value: 'Vacances_intern'
+},{
+    text: 'Veille jour férié',
+    value: 'veille_ferie'
+},{
+    text: 'Pont',
+    value: 'Pont'
+}
+];
 
 
 var optsmeteo = [{
-    text: 'Meteo 1',
-    value: 'Meteo1'
+    text: 'Ensoleillé',
+    value: 'Ensoleillé'
 }, {
-    text: 'Meteo 2',
-    value: 'Meteo2'
+    text: 'Nuageux',
+    value: 'Nuageux'
 }, {
-    text: 'Meteo 3',
-    value: 'Meteo3'
+    text: 'Pluies',
+    value: 'Pluies'
 }, {
-    text: 'Meteo 4',
-    value: 'Meteo4'
+    text: 'Neiges',
+    value: 'Neiges'
 }];
 
 
@@ -73,6 +80,8 @@ Ext.define('MyApp.view.AddSoir', {
                 }, {
                     xtype: 'selectfield',
                     label: 'Remarque',
+                    autoSelect : false,
+                    placeHolder : 'Choississez...',
                     id : 'RemarqueSoir',
                     usePicker: false,
                     options: opts,
@@ -81,6 +90,8 @@ Ext.define('MyApp.view.AddSoir', {
 
                     xtype: 'selectfield',
                     label: 'Météo',
+                    autoSelect : false,
+                    placeHolder : 'Choississez...',
                     id : 'MeteoSoir',
                     usePicker: false,
                     options: optsmeteo,

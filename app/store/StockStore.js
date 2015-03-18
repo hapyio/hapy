@@ -14,7 +14,7 @@ Ext.define('MyApp.store.StockStore', {
         storeId: 'stockstore',
         proxy: {
             type:'ajax',
-           // url:'http://hapy.io/jsonHisto.php',
+            url:'http://hapy.io/jsonStocks.php',
             reader: {
                 type:'json',
                 rootProperty: 'stocks'
