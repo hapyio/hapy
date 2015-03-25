@@ -105,6 +105,8 @@ Ext.define('MyApp.view.AddMidi', {
                         xtype: 'textfield',
                         id : 'RemarqueUMidi',
                         label: 'Remarque urgente',
+                        placeHolder : 'Optionnel',
+
                         name : 'RemarqueU',
                         margin : 10
                     }]
@@ -126,8 +128,41 @@ Ext.define('MyApp.view.AddMidi', {
                         Meteo = Ext.getCmp('MeteoMidi').getValue();
                         RemarqueU = Ext.getCmp('RemarqueUMidi').getValue();
 
+                        if(RemarqueU != "")
 
-                        Ext.Msg.alert('Selection : ', Ext.String.format('{0} {1} {2} {3}', Chiffre, Remarque, Meteo, RemarqueU));
+                        {
+
+                            RemarqueU = " - " + RemarqueU;
+                        }
+
+                        console.log(Chiffre)
+                        if(Chiffre ==  "" | Remarque == null | Meteo == null )
+                        {
+
+                            Ext.Msg.alert('Hop !', 'Veuillez compléter tous les champs obligatoires');
+
+                        }
+
+                        else {
+                            Ext.Msg.confirm('Envoyer ?', Chiffre + '€ - ' + Remarque + ' ' + RemarqueU + ' - ' + Meteo, function (id, value) {
+                                if (id === 'yes') {
+                                    Ext.getStore('sendAdd').getProxy().setExtraParams({
+                                        'Chiffre': Chiffre,
+                                        'Remarque': Remarque,
+                                        'Meteo': Meteo,
+                                        'RemarqueU': RemarqueU
+                                    });
+
+
+                                    Ext.getStore('sendAdd').load();
+                                }
+                            }, this);
+
+
+                        }
+
+
+                       // Ext.Msg.alert('Selection : ', Ext.String.format('{0} {1} {2} {3}', Chiffre, Remarque, Meteo, RemarqueU));
                     }
                 }]
             }

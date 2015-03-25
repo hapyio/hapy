@@ -6,7 +6,7 @@ Ext.define('MyApp.store.SendAddStore', {
     ],
 
     config: {
-        autoLoad: true,
+
         model: 'MyApp.model.AddModel',
         storeId: 'sendAdd',
         proxy: {
@@ -23,15 +23,5 @@ Ext.define('MyApp.store.SendAddStore', {
                 event: 'beforeload'
             }
         ]
-    },
-
-    onArraystoreBeforeLoad: function(store, operation, eOpts) {
-        console.log(store);
-        store.getProxy().setExtraParams({
-            'salut': 'tamère'
-        });
-        console.log(store);
-        //console.log(store);
     }
-
 });

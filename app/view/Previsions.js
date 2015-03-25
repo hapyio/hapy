@@ -1,19 +1,20 @@
+var yearN1 = new Date().getFullYear() - 1;
 
 var opts = [
 
     {
-    text: 'Argout',
-    value: 'Argout'
-}, {
-    text: 'Beaumarchais',
-    value: 'Beaumarchais'
-}, {
-    text: 'République',
-    value: 'Republique'
-}, {
-    text: 'Ménilmontant',
-    value: 'Menilmontant'
-}];
+        text: 'Argout',
+        value: 'Argout'
+    }, {
+        text: 'Beaumarchais',
+        value: 'Beaumarchais'
+    }, {
+        text: 'R?publique',
+        value: 'Republique'
+    }, {
+        text: 'M?nilmontant',
+        value: 'Menilmontant'
+    }];
 
 var m_number = new Array("01", "02", "03",
     "04", "05", "06", "07", "08", "09",
@@ -22,13 +23,13 @@ var m_number = new Array("01", "02", "03",
 
 
 var weekday = new Array(7);
-weekday[0]=  "Dimanche";
-weekday[1] = "Lundi";
-weekday[2] = "Mardi";
-weekday[3] = "Mercredi";
-weekday[4] = "Jeudi";
-weekday[5] = "Vendredi";
-weekday[6] = "Samedi";
+weekday[0]=  "Dim.";
+weekday[1] = "Lun.";
+weekday[2] = "Mar.";
+weekday[3] = "Mer.";
+weekday[4] = "Jeu.";
+weekday[5] = "Ven.";
+weekday[6] = "Sam.";
 
 
 
@@ -41,14 +42,10 @@ Ext.define('MyApp.view.Previsions', {
     config: {
 
         items: [
-
             {
-
                 xtype: 'titlebar',
                 docked: 'top',
                 title: 'Previsions'
-
-
             },
             {
                 xtype: 'image',
@@ -57,7 +54,6 @@ Ext.define('MyApp.view.Previsions', {
                 margin: 10
             },
             {
-
                 xtype: 'selectfield',
                 id: 'restpick',
                 label: 'Restaurant',
@@ -66,17 +62,14 @@ Ext.define('MyApp.view.Previsions', {
                 placeHolder : 'Choississez...',
                 options: opts,
                 margin: 10,
-                style : 'width:20%;margin-left:auto;'
-
+                //style : 'width:100%;margin-left:auto;'
             },
 
             {
-
                 xtype: 'container',
                 style: "margin-top:30px;",
                 layout: 'hbox',
                 //scrollable: 'vertical',
-
 
                 items: [
 
@@ -93,15 +86,12 @@ Ext.define('MyApp.view.Previsions', {
                                 xtype: 'label',
                                 name: 'J',
                                 style: 'font-weight:bold;text-align:center;display:block;'
-
-
                             },
 
                             {
                                 xtype: 'label',
                                 name: 'J+1',
                                 style: 'font-weight:bold;text-align:center;display:block;'
-
                             },
                             {
                                 xtype: 'label',
@@ -113,21 +103,17 @@ Ext.define('MyApp.view.Previsions', {
                                 xtype: 'label',
                                 name: 'J+3',
                                 style: 'font-weight:bold;text-align:center;display:block;'
-
                             },
                             {
                                 xtype: 'label',
                                 name: 'J+4',
                                 style: 'font-weight:bold;text-align:center;display:block;'
-
                             },
                             {
                                 xtype: 'label',
                                 name: 'J+5',
                                 style: 'font-weight:bold;text-align:center;display:block;'
-
                             }
-
                         ]
                     },
 
@@ -135,10 +121,9 @@ Ext.define('MyApp.view.Previsions', {
                         layout: 'vbox',
                         style: 'width:25%',
                         items: [{
-                            html: "CA N-1",
+
+                            html: "CA" + " " + yearN1,
                             style: 'font-weight:bold;text-align:center;display:block;'
-
-
                         },
                             {
                                 xtype: 'label',
@@ -183,7 +168,7 @@ Ext.define('MyApp.view.Previsions', {
                         layout: 'vbox',
                         style: 'width:25%',
                         items: [{
-                            html: "Meteo N-1",
+                            html: "Meteo"+ " " + yearN1,
                             style: 'font-weight:bold;text-align:center;display:block;'
 
 
@@ -236,7 +221,7 @@ Ext.define('MyApp.view.Previsions', {
                         layout: 'vbox',
                         style: 'width:25%',
                         items: [{
-                            html: "Meteo prévue",
+                            html: "Meteo pr?vue",
                             style: 'font-weight:bold;text-align:center;display:block;'
 
 
@@ -295,19 +280,19 @@ Ext.define('MyApp.view.Previsions', {
 
 
 
-      /*  labeldate = this.down('label[name="date"]');
-        labelrestaurant = this.down('label[name="restaurant"]');
+        /*  labeldate = this.down('label[name="date"]');
+         labelrestaurant = this.down('label[name="restaurant"]');
 
 
-        labeldate.setHtml(day);
-        labelrestaurant.setHtml(rest_name);
-*/
+         labeldate.setHtml(day);
+         labelrestaurant.setHtml(rest_name);
+         */
         var chargement = 2;
         storeCA = Ext.getStore('previsionsstore');
         store =  Ext.getStore('apimeteoStore');
 
         date = new Date();
-       var date_picked =   date.getFullYear() - 1 + "-" + m_number[date.getMonth()]  + "-" + date.getDate();
+        var date_picked =   date.getFullYear() - 1 + "-" + m_number[date.getMonth()]  + "-" + date.getDate();
 
 
         storeCA.getProxy().setExtraParams({
@@ -334,17 +319,17 @@ Ext.define('MyApp.view.Previsions', {
 
 
         var date = new Date();
-        J.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
+        J.setHtml(weekday[date.getDay()] + " " + date.getDate() + "/" + m_number[date.getMonth()]);
         date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        J1.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
+        J1.setHtml(weekday[date.getDay()] + " " + date.getDate() + "/" + m_number[date.getMonth()]);
         date = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
-        J2.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
+        J2.setHtml(weekday[date.getDay()] + " " + date.getDate() + "/" + m_number[date.getMonth()]);
         date = new Date(new Date().getTime() + 72 * 60 * 60 * 1000);
-        J3.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
+        J3.setHtml(weekday[date.getDay()] + " " + date.getDate() + "/" + m_number[date.getMonth()]);
         date = new Date(new Date().getTime() + 96 * 60 * 60 * 1000);
-        J4.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
+        J4.setHtml(weekday[date.getDay()] + " " + date.getDate() + "/" + m_number[date.getMonth()]);
         date = new Date(new Date().getTime() + 120 * 60 * 60 * 1000);
-        J5.setHtml(weekday[date.getDay()] + " (" + date.getDate() + "/" + m_number[date.getMonth()] + ")");
+        J5.setHtml(weekday[date.getDay()] + " " + date.getDate() + "/" + m_number[date.getMonth()]);
 
 
 
@@ -381,23 +366,23 @@ Ext.define('MyApp.view.Previsions', {
         //J1.setHtml(new Date(new Date().getTime() + 24 * 60 * 60 * 1000));
 
 
-       // var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-       // var n = weekday[currentDate.getDay()];
+        // var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+        // var n = weekday[currentDate.getDay()];
         //alert(n);
         //J.setHtml((new Date().getTime()).getDate());
-       //J1.setHtml(day);
+        //J1.setHtml(day);
 
-/*
-        var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-        var day = currentDate.getDate()
-        var month = currentDate.getMonth() + 1
-        var year = currentDate.getFullYear()*/
+        /*
+         var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+         var day = currentDate.getDate()
+         var month = currentDate.getMonth() + 1
+         var year = currentDate.getFullYear()*/
 
 
 
 
         /*var meteo_soir =  this.down('label[name="meteo_soir"]');
-        var remarque_urgente_soir =  this.down('label[name="remarque_urgente_soir"]');*/
+         var remarque_urgente_soir =  this.down('label[name="remarque_urgente_soir"]');*/
 
 
 
@@ -457,12 +442,12 @@ Ext.define('MyApp.view.Previsions', {
             meteoN1J5  =storeCA.getAt(5).get('weather');
 
 
-            labCAJ.setHtml(CAJ);
-            labCAJ1.setHtml(CAJ1);
-            labCAJ2.setHtml(CAJ2);
-            labCAJ3.setHtml(CAJ3);
-            labCAJ4.setHtml(CAJ4);
-            labCAJ5.setHtml(CAJ5);
+            labCAJ.setHtml(CAJ + " €");
+            labCAJ1.setHtml(CAJ1 + " €");
+            labCAJ2.setHtml(CAJ2+ " €");
+            labCAJ3.setHtml(CAJ3+ " €");
+            labCAJ4.setHtml(CAJ4+ " €");
+            labCAJ5.setHtml(CAJ5+ " €");
 
 
 

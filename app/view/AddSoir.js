@@ -123,9 +123,23 @@ Ext.define('MyApp.view.AddSoir', {
                         Meteo = Ext.getCmp('MeteoSoir').getValue();
                         RemarqueU = Ext.getCmp('RemarqueUSoir').getValue();
 
+                        Ext.Msg.confirm('Envoyer ?', Chiffre + '€ - '+ Remarque + ' - '+Meteo + ' - '+RemarqueU, function (id, value) {
+                            if (id === 'yes') {
+                                Ext.getStore('sendAdd').getProxy().setExtraParams({
+                                    'Chiffre': Chiffre,
+                                    'Remarque' : Remarque,
+                                    'Meteo' : Meteo,
+                                    'RemarqueU' : RemarqueU
+                                });
 
-                        Ext.Msg.alert('Selection : ', Ext.String.format('{0} {1} {2} {3}', Chiffre, Remarque, Meteo, RemarqueU));
-                    }
+
+
+
+                                Ext.getStore('sendAdd').load();
+                            }
+                        }, this);
+
+                          }
                 }]
             }
         ]
