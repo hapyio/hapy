@@ -1,4 +1,4 @@
-Ext.define('MyApp.controller.LoginController', {
+Ext.define('Hapy.controller.LoginController', {
     extend: 'Ext.app.Controller',
     config: {
         refs: {
@@ -51,44 +51,65 @@ Ext.define('MyApp.controller.LoginController', {
         });
 
         Ext.Ajax.request({
-            url: '../../services/login.ashx',
+            url: 'http://hapy.io/auth.php',
             method: 'post',
             params: {
-                user: username,
-                pwd: password
+                email: username,
+                password: password
             },
             success: function (response) {
 
                 var loginResponse = Ext.JSON.decode(response.responseText);
 
-                if (loginResponse.success === "true") {
-                    // The server will send a token that can be used throughout the app to confirm that the user is authenticated.
-                    me.sessionToken = loginResponse.sessionToken;
-                    me.signInSuccess();     //Just simulating success.
+                if (loginResponse.connection[0].success === "1") {
+
+
+                    var sessionInfo = Ext.getStore('SessionStore');
+                     sessionInfo.removeAll();
+                     sessionInfo.sync();
+                     var newRecord = new Hapy.model.Session({
+                     sessionId: loginResponse.connection[0].token,
+                         permission: loginResponse.connection[0].permission,
+                         restaurant : loginResponse.connection[0].restaurant,
+                         id_restaurant : loginResponse.connection[0].id_restaurant
+                    });
+
+
+                     sessionInfo.add(newRecord);
+                     sessionInfo.sync();
+
+
+
+                    me.signInSuccess();
                 } else {
-                    me.signInFailure(loginResponse.message);
+                    me.signInFailure("Identifiants érronés");
                 }
             },
             failure: function (response) {
-                ///Pour test
-                me.signInSuccess();
 
-               // me.sessionToken = null;
-              //  me.signInFailure('Login failed. Please try again later.');
+
+               me.sessionToken = null;
+              me.signInFailure('Login failed. Please try again later.');
             }
         });
     },
 
     signInSuccess: function () {
+
+        Ext.Viewport.add([
+            { xtype: 'mainview' }]);
+        if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
+            Ext.select(".x-toolbar").applyStyles("height: 62px; padding-top: 15px;")};
         console.log('Signed in.');
         var loginView = this.getLoginView();
         mainView = this.getMainView();
         loginView.setMasked(false);
 
+
         Ext.Viewport.animateActiveItem(mainView, this.getFadeTransition());
     },
 
-    singInFailure: function (message) {
+    signInFailure: function (message) {
         var loginView = this.getLoginView();
         loginView.showSignInFailedMessage(message);
         loginView.setMasked(false);

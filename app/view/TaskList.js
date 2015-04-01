@@ -1,11 +1,11 @@
 Ext.Date.patterns = {Date: "j/m/Y"};
 
-Ext.define('MyApp.view.TaskList', {
+Ext.define('Hapy.view.TaskList', {
         extend: 'Ext.Container',
         alias : 'widget.TaskList',
 
         requires: [
-            'MyApp.store.TaskStore'
+            'Hapy.store.TaskStore'
         ],
 
         config: {
@@ -17,7 +17,7 @@ Ext.define('MyApp.view.TaskList', {
                     style: "height:80%;",
                     displayField: 'title',
                     cls:'myList',
-                    store: Ext.create('MyApp.store.TaskStore'),
+                    store: Ext.create('Hapy.store.TaskStore'),
                     itemTpl: new Ext.XTemplate(
                         '<tpl for=".">',
                         '<tpl if="completed ==true"">',
@@ -38,7 +38,51 @@ Ext.define('MyApp.view.TaskList', {
                     xtype: 'button',
                     text: 'Terminer',
                     docked: 'bottom',
-                    style : 'margin:1%;'
+                    style : 'margin:1%;',
+                    handler: function (btn, evt) {
+
+                        var TaskStore =  Ext.getCmp('taskList').getStore();
+                        var done = 0;
+
+                        for(var i = 0; i< TaskStore.getCount(); i++)
+
+                        {
+
+                            if (TaskStore.getAt(i).data.completed == true)
+                            {
+                                done ++;
+                            }
+
+                        }
+
+                        if(done ==TaskStore.getCount())
+                        {
+
+                            for(var j = 0; j< TaskStore.getCount(); j++) {
+
+                                if (TaskStore.getAt(j).data.completed == true) {
+
+
+                                    var record = TaskStore.getAt(j);
+                                    Ext.getStore('SendTaskStore').add(record);
+
+                                //  Ext.getStore('SendTaskStore').  Ext.getCmp('taskList').getStore()
+                                }
+
+
+                            }
+                            Ext.getStore('SendTaskStore').load();
+                        }
+
+                        else {
+                            Ext.Msg.alert("Hé !", "Vous n'avez pas fini toutes vos tâches !");
+
+                        }
+
+
+                    }
+
+
                 }
             ]
         }}

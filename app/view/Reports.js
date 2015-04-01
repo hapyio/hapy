@@ -5,7 +5,7 @@ var m_number = new Array("01", "02", "03",
     "10", "11", "12");
 
 
-Ext.define('MyApp.view.Reports', {
+Ext.define('Hapy.view.Reports', {
     extend: 'Ext.navigation.View',
     alias: 'widget.reportsview',
     config: {
@@ -47,7 +47,8 @@ Ext.define('MyApp.view.Reports', {
 
                                         Ext.getStore('reportStore').getProxy().setExtraParams({
                                             'jour': date_picked,
-                                            'somme' : 1
+                                            'sum' : 1,
+                                            'token' : Ext.getStore('SessionStore').getAt(0).data.sessionId
                                         });
                                         Ext.getStore('reportStore').load();
                                         Ext.getCmp('reportsList').setStore(Ext.getStore('reportStore'));

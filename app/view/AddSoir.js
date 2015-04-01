@@ -36,15 +36,25 @@ var optsmeteo = [{
 }];
 
 
+var m_number = new Array("01", "02", "03",
+    "04", "05", "06", "07", "08", "09",
+    "10", "11", "12");
+
+
+var date = new Date();
+var today = date.getFullYear() + "-" + m_number[date.getMonth()]  + "-" + date.getDate();
 
 
 
-Ext.define('MyApp.view.AddSoir', {
+
+
+Ext.define('Hapy.view.AddSoir', {
     extend: 'Ext.Container',
     alias : 'widget.addviewsoir',
 
     config: {
         title : 'Saisir',
+        id : 'AddSoir',
         items: [
             {
                 xtype : 'image',
@@ -61,13 +71,14 @@ Ext.define('MyApp.view.AddSoir', {
             {
                 xtype :'label',
                 style: 'font-weight:bold;text-align:center;display:block;',
-                html : 'Argout' ///nom du restaurant auquel le directeur est associé
+                autoCapitalize: true,
+                name : 'restaurant'
 
             },
             {
                 xtype :'label',
                 style: 'font-weight:bold;text-align:center;display:block;',
-                html : 'Soir'///nom du restaurant auquel le directeur est associé
+                html : 'Soir'
 
             },
             {
@@ -76,24 +87,25 @@ Ext.define('MyApp.view.AddSoir', {
                     xtype: 'textfield',
                     id : 'ChiffresSoir',
                     label: 'Chiffre : ',
+                    style : "font-size:14px;",
                     margin : 10
                 }, {
                     xtype: 'selectfield',
-                    label: 'Remarque',
-                    autoSelect : false,
-                    placeHolder : 'Choississez...',
                     id : 'RemarqueSoir',
-                    usePicker: false,
+                    label: 'Remarque :',
+                    autoSelect : false,
+                    placeHolder : 'Choisissez...',
+                    usePicker: 'auto',
                     options: opts,
                     margin : 10
                 }, {
 
                     xtype: 'selectfield',
-                    label: 'Météo',
-                    autoSelect : false,
-                    placeHolder : 'Choississez...',
                     id : 'MeteoSoir',
-                    usePicker: false,
+                    label: 'Météo :',
+                    autoSelect : false,
+                    placeHolder : 'Choisissez...',
+                    usePicker: 'auto',
                     options: optsmeteo,
                     margin : 10
 
@@ -102,15 +114,18 @@ Ext.define('MyApp.view.AddSoir', {
                     {
 
                         xtype: 'textfield',
-                        label: 'Remarque urgente',
                         id : 'RemarqueUSoir',
+                        label: 'Urgence :',
+                        placeHolder : 'Optionnel',
+
+                        name : 'RemarqueU',
                         margin : 10
                     }]
             }, {
                 xtype: 'toolbar',
                 layout: {
                     pack: 'center'
-                }, // layout
+                },
                 ui: 'plain',
                 items: [{
                     xtype: 'button',
@@ -118,31 +133,62 @@ Ext.define('MyApp.view.AddSoir', {
                     ui: 'confirm',
                     handler: function (btn, evt) {
 
+
                         Chiffre = Ext.getCmp('ChiffresSoir').getValue();
                         Remarque = Ext.getCmp('RemarqueSoir').getValue();
                         Meteo = Ext.getCmp('MeteoSoir').getValue();
                         RemarqueU = Ext.getCmp('RemarqueUSoir').getValue();
+                        var displayU = RemarqueU;
+                        if(RemarqueU != "")
 
-                        Ext.Msg.confirm('Envoyer ?', Chiffre + '€ - '+ Remarque + ' - '+Meteo + ' - '+RemarqueU, function (id, value) {
-                            if (id === 'yes') {
-                                Ext.getStore('sendAdd').getProxy().setExtraParams({
-                                    'Chiffre': Chiffre,
-                                    'Remarque' : Remarque,
-                                    'Meteo' : Meteo,
-                                    'RemarqueU' : RemarqueU
-                                });
+                        {
+
+                            displayU =  " - " + RemarqueU;
+                        }
+
+                        console.log(Chiffre);
+                        if(Chiffre ==  "" | Remarque == null | Meteo == null )
+                        {
+
+                            Ext.Msg.alert('Hop !', 'Veuillez compléter tous les champs obligatoires');
+
+                        }
+
+                        else {
+                            Ext.Msg.confirm('Envoyer ?', Chiffre + '€ - ' + Remarque + ' ' + displayU + ' - ' + Meteo, function (id, value) {
+                                if (id === 'yes') {
+                                    Ext.getStore('sendAdd').getProxy().setExtraParams({
+                                        'id_restaurant' : Ext.getStore('SessionStore').getAt(0).data.id_restaurant,
+                                        'restaurant' : Ext.getStore('SessionStore').getAt(0).data.restaurant,
+                                        'day' : today,
+                                        'service' : 'soir',
+                                        'sales': Chiffre,
+                                        'note': Remarque,
+                                        'warning_note': RemarqueU,
+                                        'weather': Meteo,
+                                        'token' :  Ext.getStore('SessionStore').getAt(0).data.sessionId
+
+                                    });
 
 
+                                    Ext.getStore('sendAdd').load();
+                                }
+                            }, this);
 
 
-                                Ext.getStore('sendAdd').load();
-                            }
-                        }, this);
+                        }
 
-                          }
+                    }
                 }]
             }
         ]
+
+    },
+    updateWithRecord: function(restaurant) {
+
+        var labrestaurant = this.down('label[name="restaurant"]');
+
+        labrestaurant.setHtml(restaurant);
 
     }
 });

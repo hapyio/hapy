@@ -2,7 +2,7 @@
 
 
 
-Ext.define('MyApp.store.StockStore', {
+Ext.define('Hapy.store.StockStore', {
     extend: 'Ext.data.Store',
     xtype: 'stockstore',
     requires: [
@@ -10,8 +10,9 @@ Ext.define('MyApp.store.StockStore', {
         'Ext.data.JsonP'
     ],
     config: {
-        model: 'MyApp.model.Stock',
+        model: 'Hapy.model.Stock',
         storeId: 'stockstore',
+        autoload : true,
         proxy: {
             type:'ajax',
             url:'http://hapy.io/jsonStocks.php',

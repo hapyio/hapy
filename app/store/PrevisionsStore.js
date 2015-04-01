@@ -2,7 +2,7 @@
 
 
 
-Ext.define('MyApp.store.PrevisionsStore', {
+Ext.define('Hapy.store.PrevisionsStore', {
     extend: 'Ext.data.Store',
     xtype: 'previsionsstore',
     requires: [
@@ -10,7 +10,7 @@ Ext.define('MyApp.store.PrevisionsStore', {
         'Ext.data.JsonP'
     ],
     config: {
-        model: 'MyApp.model.report',
+        model: 'Hapy.model.report',
         storeId: 'previsionsstore',
         proxy: {
             type:'ajax',

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="6e1e901d-ef08-4f68-904e-990e7115b326" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
+    <name>Hapy</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

@@ -1,5 +1,5 @@
 Ext.application({
-    name: 'MyApp',
+    name: 'Hapy',
 
     requires: [
         'Ext.MessageBox'
@@ -10,7 +10,8 @@ Ext.application({
         'Task',
         'APImeteo',
         'Stock',
-        'AddModel'
+        'AddModel',
+        'Session'
     ],
 
     stores : [
@@ -20,7 +21,9 @@ Ext.application({
         'ApiMeteoStore',
         'PrevisionsStore',
         'StockStore',
-        'SendAddStore'
+        'SendAddStore',
+        'SessionStore',
+        'SendTaskStore'
     ],
 
     views: [
@@ -33,7 +36,10 @@ Ext.application({
         'TaskList',
         'ReportsDetail',
         'Previsions',
-        'Stocks'
+        'Stocks',
+        'Compte',
+        'AddMidiPerm1',
+        'AddSoirPerm1'
 
     ],
     controllers: [
@@ -41,7 +47,8 @@ Ext.application({
         'AddController',
         'TaskController',
         'ReportController',
-        'PrevisionsController'
+        'PrevisionsController',
+        'MainController'
     ],
 
 
@@ -68,14 +75,36 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-        Ext.Viewport.add([
-            { xtype: 'loginview' },
-            { xtype: 'mainview' }
-            //{ xtype : 'reportsdetailview'}
-        ]);
 
-        if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
-            Ext.select(".x-toolbar").applyStyles("height: 62px; padding-top: 15px;")};
+
+
+        ////Vérifier si token
+            var sessionInfo = Ext.getStore('SessionStore');
+            sessionInfo.sync();
+
+            if(sessionInfo.getAt(0) == null)
+            {
+                ///Pas connecté
+
+                Ext.Viewport.add([
+                    { xtype: 'loginview' }
+                   // { xtype: 'mainview' }
+                ]);
+                if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
+                    Ext.select(".x-toolbar").applyStyles("height: 62px; padding-top: 15px;")};
+            }
+        else {
+
+
+        Ext.Viewport.add([
+
+            { xtype: 'mainview' }
+        ]);
+                if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
+                    Ext.select(".x-toolbar").applyStyles("height: 62px; padding-top: 15px;")};
+            }
+
+
     },
 
     onUpdated: function() {

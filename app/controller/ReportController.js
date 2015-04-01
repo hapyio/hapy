@@ -1,4 +1,4 @@
-Ext.define('MyApp.controller.ReportController', {
+Ext.define('Hapy.controller.ReportController', {
         extend: 'Ext.app.Controller',
         config: {
 
@@ -35,7 +35,7 @@ Ext.define('MyApp.controller.ReportController', {
             value = task.get('day');
             var date_picked = value.getFullYear() + "-" + m_number[value.getMonth()]  + "-" + value.getDate();
 
-            //var record = Ext.create('MyApp.model.report', { name_restaurant: task.get('name_restaurant'), day : date_picked });
+            //var record = Ext.create('Hapy.model.report', { name_restaurant: task.get('name_restaurant'), day : date_picked });
 
 
 

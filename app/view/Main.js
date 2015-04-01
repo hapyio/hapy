@@ -79,7 +79,23 @@ var window_stock =
 
 };
 
-Ext.define('MyApp.view.Main', {
+var window_compte =
+
+{
+    title : 'Compte',
+    layout : 'fit',
+    iconCls: 'user',
+
+    styleHtmlContent: true,
+    items: [
+        {
+            xtype : 'compteview'
+        }
+    ]
+
+};
+
+Ext.define('Hapy.view.Main', {
     extend: 'Ext.tab.Panel',
     alias: 'widget.mainview',
     xtype: 'main',
@@ -88,13 +104,14 @@ Ext.define('MyApp.view.Main', {
     {
 
         id : 'mainbar',
+        itemId : 'mainbar',
         tabBarPosition: 'bottom',
         fullscreen : true,
         scrollable : {
             direction     : 'vertical',
             directionLock : true
-        },
-        items: [window_add ,window_report,window_prevision ,window_todolist ,window_stock]
+        }
+       // items: [window_add ,window_report,window_prevision ,window_todolist ,window_stock, window_compte]
 
     }
 

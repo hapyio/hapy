@@ -1,10 +1,10 @@
-Ext.define('MyApp.model.Task', {
+Ext.define('Hapy.model.Task', {
     extend: 'Ext.data.Model',
 
     config: {
         fields: [{
-            name: 'id',
-            type: 'int'
+            name: 'date',
+            type: 'string'
         },
 
             {
@@ -18,7 +18,7 @@ Ext.define('MyApp.model.Task', {
             },
 
             {
-                name: 'description',
+                name: 'quantity',
                 type: 'string'
             }
         ],

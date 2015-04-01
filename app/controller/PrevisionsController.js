@@ -1,4 +1,4 @@
-Ext.define('MyApp.controller.PrevisionsController', {
+Ext.define('Hapy.controller.PrevisionsController', {
     extend: 'Ext.app.Controller',
     config: {
 

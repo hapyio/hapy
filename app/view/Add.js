@@ -8,7 +8,7 @@ Ext.Date.patterns = {
 
 
 
-Ext.define('MyApp.view.Add', {
+Ext.define('Hapy.view.Add', {
     extend: 'Ext.navigation.View',
     alias: 'widget.addview',
     iconCls: 'add',
@@ -32,6 +32,13 @@ Ext.define('MyApp.view.Add', {
                         src : './resources/icons/BlendBurgerHautDePage.png',
                         mode : 'image',
                         margin : 10
+
+                    },
+                    {
+
+                        xtype : 'label',
+                        style: 'font-weight:bold;text-align:center;display:block;',
+                        name : 'restaurant'
 
                     },
                     {
@@ -64,7 +71,9 @@ Ext.define('MyApp.view.Add', {
             }
         ]
     }
-});
+
+
+    });
 
 
 

@@ -1,4 +1,4 @@
-Ext.define('MyApp.store.ReportDetailStore', {
+Ext.define('Hapy.store.ReportDetailStore', {
     extend: 'Ext.data.Store',
     xtype: 'reportdetailstore',
     requires: [
@@ -6,10 +6,11 @@ Ext.define('MyApp.store.ReportDetailStore', {
         'Ext.data.JsonP'
     ],
     config: {
-        model: 'MyApp.model.report',
+        model: 'Hapy.model.report',
         storeId: 'reportDetailStore',
         proxy: {
             type:'ajax',
+            actionMethods: 'POST',
             url:'http://hapy.io/json.php',
             reader: {
                 type:'json',

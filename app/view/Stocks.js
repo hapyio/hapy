@@ -1,5 +1,22 @@
 
-Ext.define('MyApp.view.Stocks', {
+
+var opts1 = [
+    {
+        text: 'Argout',
+        value: 'Argout'
+    }, {
+        text: 'Beaumarchais',
+        value: 'Beaumarchais'
+    }, {
+        text: 'République',
+        value: 'Republique'
+    }, {
+        text: 'Ménilmontant',
+        value: 'Menilmontant'
+    }];
+
+
+Ext.define('Hapy.view.Stocks', {
     extend: 'Ext.Container',
     alias: 'widget.stocksview',
 
@@ -22,10 +39,9 @@ Ext.define('MyApp.view.Stocks', {
                     label: 'Restaurant',
                     //usePicker: false,
                     autoSelect : false,
-                    placeHolder : 'Choississez...',
-                    options: opts,
-                    margin: 10,
-                    style : 'width:20%;margin-left:auto;',
+                    placeHolder : 'Choisissez...',
+                    margin:10,
+                    options: opts1,
                     listeners: {
                         show: function(component, eOpts) {
                             var choix = this.getValue();

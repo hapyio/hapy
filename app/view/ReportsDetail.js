@@ -1,7 +1,19 @@
+var m_number = new Array("01", "02", "03",
+    "04", "05", "06", "07", "08", "09",
+    "10", "11", "12");
+
+var weekday = new Array(7);
+weekday[0] = "Dim.";
+weekday[1] = "Lun.";
+weekday[2] = "Mar.";
+weekday[3] = "Mer.";
+weekday[4] = "Jeu.";
+weekday[5] = "Ven.";
+weekday[6] = "Sam.";
 
 
 
-Ext.define('MyApp.view.ReportsDetail', {
+Ext.define('Hapy.view.ReportsDetail', {
     extend: 'Ext.Container',
     alias : 'widget.reportsdetailview',
 
@@ -123,7 +135,11 @@ Ext.define('MyApp.view.ReportsDetail', {
         labelrestaurant = this.down('label[name="restaurant"]');
 
 
-            labeldate.setHtml(day);
+         //   labeldate.setHtml(day);
+
+
+        var labelday = weekday[day.getDay()] + " " + day.getDate() + "/" + m_number[day.getMonth()] + "/" + day.getFullYear();
+        labeldate.setHtml(labelday);
         labelrestaurant.setHtml(rest_name);
 
 
@@ -134,7 +150,8 @@ Ext.define('MyApp.view.ReportsDetail', {
 
            store.getProxy().setExtraParams({
                 'jour': date_picked,
-                'restaurant': rest_name
+                'restaurant': rest_name,
+               'token' : Ext.getStore('SessionStore').getAt(0).data.sessionId
             });
 
 

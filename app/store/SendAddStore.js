@@ -1,13 +1,13 @@
-Ext.define('MyApp.store.SendAddStore', {
+Ext.define('Hapy.store.SendAddStore', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'MyApp.model.AddModel'
+        'Hapy.model.AddModel'
     ],
 
     config: {
 
-        model: 'MyApp.model.AddModel',
+        model: 'Hapy.model.AddModel',
         storeId: 'sendAdd',
         proxy: {
             type: 'ajax',

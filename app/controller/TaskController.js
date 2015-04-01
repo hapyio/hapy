@@ -1,4 +1,4 @@
-Ext.define('MyApp.controller.TaskController', {
+Ext.define('Hapy.controller.TaskController', {
     extend: 'Ext.app.Controller',
 
     config: {

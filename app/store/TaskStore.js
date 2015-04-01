@@ -1,53 +1,26 @@
-Ext.define('MyApp.store.TaskStore', {
+Ext.define('Hapy.store.TaskStore', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'MyApp.model.Task'
+        'Hapy.model.Task'
     ],
 
     config: {
         autoLoad: true,
         autoSync: true,
-        model: 'MyApp.model.Task',
+        model: 'Hapy.model.Task',
         storeId: 'TaskStore',
+        proxy: {
+            type:'ajax',
+            actionMethods: 'POST',
+            url:'http://hapy.io/GEDATASK.JSON',
+            reader: {
+                type:'json',
+                rootProperty: 'reports'
 
-            data: [
-                {
-                    completed: 'false',
-                    title: 'Pains à hamburger',
-                    description: '100'
-                },
-                {
-                    completed: 'true',
-                    title: 'Sauce tomate',
-                    description: '100'
-                },
-                {
-                    completed: 'false',
-                    title: 'Fromage',
-                    description: '100'
-                },
-                {
-                    completed: 'false',
-                    title: 'Viande hachée',
-                    description: '100'
-                },
-                {
-                    completed: 'false',
-                    title: 'Salade',
-                    description: '100'
-                },
-                {
-                    completed: 'false',
-                    title: 'Pickles',
-                    description: '100'
-                }
-            ]
+            }
 
-        /*proxy: {
-            type: 'localstorage',
-            id: 'senchatasks'
-        },*/
+        }
     }
 });
 

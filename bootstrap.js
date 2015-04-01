@@ -32,7 +32,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "MyApp": "app"
+  "Hapy": "app"
 });
 
 Ext.ClassManager.addNameAlternateMappings({
@@ -656,33 +656,41 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "MyApp.controller.AddController": [],
-  "MyApp.controller.LoginController": [],
-  "MyApp.controller.PrevisionsController": [],
-  "MyApp.controller.ReportController": [],
-  "MyApp.controller.TaskController": [],
-  "MyApp.model.APImeteo": [],
-  "MyApp.model.AddModel": [],
-  "MyApp.model.Stock": [],
-  "MyApp.model.Task": [],
-  "MyApp.model.report": [],
-  "MyApp.store.ApiMeteoStore": [],
-  "MyApp.store.PrevisionsStore": [],
-  "MyApp.store.ReportDetailStore": [],
-  "MyApp.store.ReportStore": [],
-  "MyApp.store.SendAddStore": [],
-  "MyApp.store.StockStore": [],
-  "MyApp.store.TaskStore": [],
-  "MyApp.view.Add": [],
-  "MyApp.view.AddMidi": [],
-  "MyApp.view.AddSoir": [],
-  "MyApp.view.Login": [],
-  "MyApp.view.Main": [],
-  "MyApp.view.Previsions": [],
-  "MyApp.view.Reports": [],
-  "MyApp.view.ReportsDetail": [],
-  "MyApp.view.Stocks": [],
-  "MyApp.view.TaskList": []
+  "Hapy.controller.AddController": [],
+  "Hapy.controller.LoginController": [],
+  "Hapy.controller.MainController": [],
+  "Hapy.controller.PrevisionsController": [],
+  "Hapy.controller.ReportController": [],
+  "Hapy.controller.TaskController": [],
+  "Hapy.model.APImeteo": [],
+  "Hapy.model.AddModel": [],
+  "Hapy.model.Session": [],
+  "Hapy.model.Stock": [],
+  "Hapy.model.Task": [],
+  "Hapy.model.report": [],
+  "Hapy.model.varAuth": [],
+  "Hapy.store.ApiMeteoStore": [],
+  "Hapy.store.PrevisionsStore": [],
+  "Hapy.store.ReportDetailStore": [],
+  "Hapy.store.ReportStore": [],
+  "Hapy.store.SendAddStore": [],
+  "Hapy.store.SendTaskStore": [],
+  "Hapy.store.SessionStore": [],
+  "Hapy.store.StockStore": [],
+  "Hapy.store.TaskStore": [],
+  "Hapy.view.Add": [],
+  "Hapy.view.AddMidi": [],
+  "Hapy.view.AddMidiPerm1": [],
+  "Hapy.view.AddSoir": [],
+  "Hapy.view.AddSoirPerm1": [],
+  "Hapy.view.Compte": [],
+  "Hapy.view.Login": [],
+  "Hapy.view.Main": [],
+  "Hapy.view.Previsions": [],
+  "Hapy.view.Reports": [],
+  "Hapy.view.ReportsDetail": [],
+  "Hapy.view.Stocks": [],
+  "Hapy.view.TaskList": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1403,62 +1411,76 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
-  "MyApp.controller.AddController": [],
-  "MyApp.controller.LoginController": [],
-  "MyApp.controller.PrevisionsController": [],
-  "MyApp.controller.ReportController": [],
-  "MyApp.controller.TaskController": [],
-  "MyApp.model.APImeteo": [],
-  "MyApp.model.AddModel": [],
-  "MyApp.model.Stock": [],
-  "MyApp.model.Task": [],
-  "MyApp.model.report": [],
-  "MyApp.store.ApiMeteoStore": [
+  "Hapy.controller.AddController": [],
+  "Hapy.controller.LoginController": [],
+  "Hapy.controller.MainController": [],
+  "Hapy.controller.PrevisionsController": [],
+  "Hapy.controller.ReportController": [],
+  "Hapy.controller.TaskController": [],
+  "Hapy.model.APImeteo": [],
+  "Hapy.model.AddModel": [],
+  "Hapy.model.Session": [],
+  "Hapy.model.Stock": [],
+  "Hapy.model.Task": [],
+  "Hapy.model.report": [],
+  "Hapy.model.varAuth": [],
+  "Hapy.store.ApiMeteoStore": [
     "widget.apimeteostore"
   ],
-  "MyApp.store.PrevisionsStore": [
+  "Hapy.store.PrevisionsStore": [
     "widget.previsionsstore"
   ],
-  "MyApp.store.ReportDetailStore": [
+  "Hapy.store.ReportDetailStore": [
     "widget.reportdetailstore"
   ],
-  "MyApp.store.ReportStore": [
+  "Hapy.store.ReportStore": [
     "widget.reportstore"
   ],
-  "MyApp.store.SendAddStore": [],
-  "MyApp.store.StockStore": [
+  "Hapy.store.SendAddStore": [],
+  "Hapy.store.SendTaskStore": [],
+  "Hapy.store.SessionStore": [],
+  "Hapy.store.StockStore": [
     "widget.stockstore"
   ],
-  "MyApp.store.TaskStore": [],
-  "MyApp.view.Add": [
+  "Hapy.store.TaskStore": [],
+  "Hapy.view.Add": [
     "widget.addview"
   ],
-  "MyApp.view.AddMidi": [
+  "Hapy.view.AddMidi": [
     "widget.addviewmidi"
   ],
-  "MyApp.view.AddSoir": [
+  "Hapy.view.AddMidiPerm1": [
+    "widget.addviewmidiperm1"
+  ],
+  "Hapy.view.AddSoir": [
     "widget.addviewsoir"
   ],
-  "MyApp.view.Login": [
+  "Hapy.view.AddSoirPerm1": [
+    "widget.addviewsoirperm1"
+  ],
+  "Hapy.view.Compte": [
+    "widget.compteview"
+  ],
+  "Hapy.view.Login": [
     "widget.loginview"
   ],
-  "MyApp.view.Main": [
+  "Hapy.view.Main": [
     "widget.main",
     "widget.mainview"
   ],
-  "MyApp.view.Previsions": [
+  "Hapy.view.Previsions": [
     "widget.previsionsview"
   ],
-  "MyApp.view.Reports": [
+  "Hapy.view.Reports": [
     "widget.reportsview"
   ],
-  "MyApp.view.ReportsDetail": [
+  "Hapy.view.ReportsDetail": [
     "widget.reportsdetailview"
   ],
-  "MyApp.view.Stocks": [
+  "Hapy.view.Stocks": [
     "widget.stocksview"
   ],
-  "MyApp.view.TaskList": [
+  "Hapy.view.TaskList": [
     "widget.TaskList"
   ]
 });

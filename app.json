@@ -7,7 +7,7 @@
                 "config": {
                     "platforms": "ios",
                     "id": "6e1e901d-ef08-4f68-904e-990e7115b326",
-                    "name": "HapyBlend"
+                    "name": "Hapy"
                 }
             }
         }
@@ -17,7 +17,7 @@
     /**
      * The application's namespace, used by Sencha Command to generate classes
      */
-    "name": "MyApp",
+    "name": "Hapy",
 
     /**
      * The file path to this application's front HTML document, relative to this app.json file

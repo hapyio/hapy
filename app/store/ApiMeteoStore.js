@@ -1,4 +1,4 @@
-Ext.define('MyApp.store.ApiMeteoStore', {
+Ext.define('Hapy.store.ApiMeteoStore', {
     extend: 'Ext.data.Store',
     xtype: 'apimeteostore',
     requires: [
@@ -6,7 +6,7 @@ Ext.define('MyApp.store.ApiMeteoStore', {
         'Ext.data.JsonP'
     ],
     config: {
-        model: 'MyApp.model.APImeteo',
+        model: 'Hapy.model.APImeteo',
         storeId : 'apimeteoStore',
         //autoLoad: true,
         proxy: {

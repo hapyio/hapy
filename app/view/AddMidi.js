@@ -36,10 +36,19 @@ var optsmeteo = [{
 }];
 
 
+var m_number = new Array("01", "02", "03",
+    "04", "05", "06", "07", "08", "09",
+    "10", "11", "12");
+
+
+var date = new Date();
+var today = date.getFullYear() + "-" + m_number[date.getMonth()]  + "-" + date.getDate();
 
 
 
-Ext.define('MyApp.view.AddMidi', {
+
+
+Ext.define('Hapy.view.AddMidi', {
     extend: 'Ext.Container',
     alias : 'widget.addviewmidi',
 
@@ -62,13 +71,14 @@ Ext.define('MyApp.view.AddMidi', {
             {
                 xtype :'label',
                 style: 'font-weight:bold;text-align:center;display:block;',
-                html : 'Argout' ///nom du restaurant auquel le directeur est associé
+                autoCapitalize: true,
+                name : 'restaurant'
 
             },
             {
                 xtype :'label',
                 style: 'font-weight:bold;text-align:center;display:block;',
-                html : 'Midi'///nom du restaurant auquel le directeur est associé
+                html : 'Midi'
 
             },
             {
@@ -77,24 +87,25 @@ Ext.define('MyApp.view.AddMidi', {
                     xtype: 'textfield',
                     id : 'ChiffresMidi',
                     label: 'Chiffre : ',
+                    style : "font-size:14px;",
                     margin : 10
                 }, {
                     xtype: 'selectfield',
                     id : 'RemarqueMidi',
-                    label: 'Remarque',
+                    label: 'Remarque :',
                     autoSelect : false,
-                    placeHolder : 'Choississez...',
-                    usePicker: false,
+                    placeHolder : 'Choisissez...',
+                    usePicker: 'auto',
                     options: opts,
                     margin : 10
                 }, {
 
                     xtype: 'selectfield',
                     id : 'MeteoMidi',
-                    label: 'Météo',
+                    label: 'Météo :',
                     autoSelect : false,
-                    placeHolder : 'Choississez...',
-                    usePicker: false,
+                    placeHolder : 'Choisissez...',
+                    usePicker: 'auto',
                     options: optsmeteo,
                     margin : 10
 
@@ -104,7 +115,7 @@ Ext.define('MyApp.view.AddMidi', {
 
                         xtype: 'textfield',
                         id : 'RemarqueUMidi',
-                        label: 'Remarque urgente',
+                        label: 'Urgence :',
                         placeHolder : 'Optionnel',
 
                         name : 'RemarqueU',
@@ -127,15 +138,15 @@ Ext.define('MyApp.view.AddMidi', {
                         Remarque = Ext.getCmp('RemarqueMidi').getValue();
                         Meteo = Ext.getCmp('MeteoMidi').getValue();
                         RemarqueU = Ext.getCmp('RemarqueUMidi').getValue();
-
+                        var displayU = RemarqueU;
                         if(RemarqueU != "")
 
                         {
 
-                            RemarqueU = " - " + RemarqueU;
+                           displayU =  " - " + RemarqueU;
                         }
 
-                        console.log(Chiffre)
+                        console.log(Chiffre);
                         if(Chiffre ==  "" | Remarque == null | Meteo == null )
                         {
 
@@ -144,13 +155,19 @@ Ext.define('MyApp.view.AddMidi', {
                         }
 
                         else {
-                            Ext.Msg.confirm('Envoyer ?', Chiffre + '€ - ' + Remarque + ' ' + RemarqueU + ' - ' + Meteo, function (id, value) {
+                            Ext.Msg.confirm('Envoyer ?', Chiffre + '€ - ' + Remarque + ' ' + displayU + ' - ' + Meteo, function (id, value) {
                                 if (id === 'yes') {
                                     Ext.getStore('sendAdd').getProxy().setExtraParams({
-                                        'Chiffre': Chiffre,
-                                        'Remarque': Remarque,
-                                        'Meteo': Meteo,
-                                        'RemarqueU': RemarqueU
+                                        'id_restaurant' : Ext.getStore('SessionStore').getAt(0).data.id_restaurant,
+                                        'restaurant' : Ext.getStore('SessionStore').getAt(0).data.restaurant,
+                                        'day' : today,
+                                        'service' : 'midi',
+                                        'sales': Chiffre,
+                                        'note': Remarque,
+                                        'warning_note': RemarqueU,
+                                        'weather': Meteo,
+                                        'token' :  Ext.getStore('SessionStore').getAt(0).data.sessionId
+
                                     });
 
 
@@ -161,12 +178,17 @@ Ext.define('MyApp.view.AddMidi', {
 
                         }
 
-
-                       // Ext.Msg.alert('Selection : ', Ext.String.format('{0} {1} {2} {3}', Chiffre, Remarque, Meteo, RemarqueU));
-                    }
+                        }
                 }]
             }
         ]
+
+    },
+    updateWithRecord: function(restaurant) {
+
+        var labrestaurant = this.down('label[name="restaurant"]');
+
+        labrestaurant.setHtml(restaurant);
 
     }
 });

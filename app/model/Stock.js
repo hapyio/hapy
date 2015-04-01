@@ -1,4 +1,4 @@
-Ext.define('MyApp.model.Stock', {
+Ext.define('Hapy.model.Stock', {
     extend: 'Ext.data.Model',
     config :  {
         fields: [
